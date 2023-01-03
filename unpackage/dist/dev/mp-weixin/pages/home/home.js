@@ -311,8 +311,8 @@ var _default = {
 
                 // 请求成功后赋值floorList
                 _this3.floorList = res.message;
-                console.log(_this3.floorList);
-              case 10:
+                // console.log(this.floorList);
+              case 9:
               case "end":
                 return _context3.stop();
             }
