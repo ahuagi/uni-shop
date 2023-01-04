@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<!-- 顶部搜索组件 -->
+		<my-search @myclick = 'gotoSearch'></my-search>
+
 		<view class="scroll-view-container">
 			<!-- 左侧的滚动视图区域 -->
 			<scroll-view class="left-scroll-view" scroll-y :style="{height: wh + 'px'}">
@@ -15,7 +18,8 @@
 					<!-- 动态渲染三级分类的列表数据 -->
 					<view class="cate-lv3-list">
 						<!-- 三级分类 Item 项 -->
-						<view class="cate-lv3-item" v-for="(item3, i3) in item2.children" :key="i3" @click="gotoGoodsList(item3)">
+						<view class="cate-lv3-item" v-for="(item3, i3) in item2.children" :key="i3"
+							@click="gotoGoodsList(item3)">
 							<!-- 图片 -->
 							<image :src="item3.cat_icon"></image>
 							<!-- 文本 -->
@@ -39,7 +43,7 @@
 				// 右侧分类数据列表
 				cateList2: [],
 				// 滚动条距离顶部的距离
-				scrollTop: 0 ,
+				scrollTop: 0,
 				// 分类激活
 				active: 0
 			};
@@ -68,19 +72,25 @@
 				// scrollTop动态赋值
 				this.scrollTop = this.scrollTop === 0 ? 1 : 0
 				// console.log(this.cateList2);
-			} ,
+			},
 			// 点击三级分类项跳转到商品列表页面
 			gotoGoodsList(item3) {
-			  uni.navigateTo({
-			    url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
-			  })
+				uni.navigateTo({
+					url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
+				})
+			} ,
+			// 搜索按钮
+			gotoSearch(){
+				// console.log('ok');
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
 			}
 		},
 		onLoad() {
-			// 获取当前系统的信息
 			const sysInfo = uni.getSystemInfoSync()
-			// 为 wh 窗口可用高度动态赋值
-			this.wh = sysInfo.windowHeight
+			// 可用高度 = 屏幕高度 - navigationBar高度 - tabBar高度 - 自定义的search组件高度
+			this.wh = sysInfo.windowHeight - 50
 			this.getCateList()
 		}
 	}
