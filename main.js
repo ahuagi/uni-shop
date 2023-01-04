@@ -17,7 +17,7 @@ uni.$showMsg = function(title = "数据请求失败" , duration = 1500){
 }
 
 // 基础请求地址
-$http.baseUrl = 'https://www.uinav.com'
+$http.baseUrl = 'https://api-hmugo-web.itheima.net'
 $http.beforeRequest = function(options){
 	uni.showLoading({
 		title : '数据加载中'
