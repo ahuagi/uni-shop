@@ -34,7 +34,7 @@ uni.$showMsg = function () {
 };
 
 // 基础请求地址
-_requestMiniprogram.$http.baseUrl = 'https://www.uinav.com';
+_requestMiniprogram.$http.baseUrl = 'https://api-hmugo-web.itheima.net';
 _requestMiniprogram.$http.beforeRequest = function (options) {
   uni.showLoading({
     title: '数据加载中'

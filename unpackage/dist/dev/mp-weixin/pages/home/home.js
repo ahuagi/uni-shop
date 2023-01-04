@@ -259,11 +259,10 @@ var _default = {
                 }
                 return _context2.abrupt("return", uni.$showMsg());
               case 6:
-                uni.$showMsg('数据请求成功');
                 // 请求成功后赋值navList
                 _this2.navList = res.message;
                 // console.log(this.navList);
-              case 8:
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -300,8 +299,6 @@ var _default = {
                 }
                 return _context3.abrupt("return", uni.$showMsg());
               case 6:
-                uni.$showMsg('数据请求成功');
-
                 // 通过双层 forEach 循环，处理 URL 地址
                 res.message.forEach(function (floor) {
                   floor.product_list.forEach(function (prod) {
@@ -312,7 +309,7 @@ var _default = {
                 // 请求成功后赋值floorList
                 _this3.floorList = res.message;
                 // console.log(this.floorList);
-              case 9:
+              case 8:
               case "end":
                 return _context3.stop();
             }

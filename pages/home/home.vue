@@ -85,7 +85,6 @@
 				if (res.meta.status != 200) {
 					return uni.$showMsg()
 				}
-				uni.$showMsg('数据请求成功')
 				// 请求成功后赋值navList
 				this.navList = res.message
 				// console.log(this.navList);
@@ -106,7 +105,6 @@
 				if (res.meta.status != 200) {
 					return uni.$showMsg()
 				}
-				uni.$showMsg('数据请求成功')
 				
 				// 通过双层 forEach 循环，处理 URL 地址
 				  res.message.forEach(floor => {
