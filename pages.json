@@ -26,72 +26,66 @@
 				"selectedIconPath": "static/tab_icons/my-active.png"
 			}
 		]
-	} ,
+	},
 
 	"pages": [{
-		"path": "pages/home/home",
-		"style": {
-			"enablePullDownRefresh": false
+			"path": "pages/home/home",
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/cate/cate",
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/cart/cart",
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my/my",
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
 		}
 
-	}, {
-		"path": "pages/cate/cate",
-		"style": {
-			"enablePullDownRefresh": false
-		}
+	],
 
-	}, {
-		"path": "pages/cart/cart",
-		"style": {
-			"enablePullDownRefresh": false
-		}
+	"subPackages": [{
+		"root": "subpkg",
+		"pages": [{
+			"path": "goods_details/goods_details",
+			"style": {
+				"enablePullDownRefresh": false
+			}
 
-	}, {
-		"path": "pages/my/my",
-		"style": {
-			"enablePullDownRefresh": false
-		}
+		}, {
+			"path": "goods_list/goods_list",
+			"style": {
+				"enablePullDownRefresh": false,
+				"onReachBottomDistance": 150,
+				"enablePullDownRefresh": true,
+				"backgroundColor": "#F8F8F8"
+			}
 
-	}    
-        
-    ],
-	
-	"subPackages": [
-	    {
-	      "root": "subpkg",
-	      "pages": [{
-                    "path" : "goods_details/goods_details",
-                    "style" :                                                                                    
-                {
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "goods_list/goods_list",
-                    "style" :                                                                                    
-                {
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "search/search",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
-	    }
-	  ] ,
-	  
+		}, {
+			"path": "search/search",
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		}]
+	}],
+
 	"globalStyle": {
-	    "navigationBarTextStyle": "white",
-	    "navigationBarTitleText": "优购商城",
-	    "navigationBarBackgroundColor": "#C00000",
-	    "backgroundColor": "#FFFFFF"
-	  }
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "优购商城",
+		"navigationBarBackgroundColor": "#C00000",
+		"backgroundColor": "#FFFFFF"
+	}
 }

@@ -22,9 +22,15 @@
           "scene": null
         },
         {
+<<<<<<< HEAD
           "name": "subpkg/goods_details/goods_details",
           "pathName": "subpkg/goods_details/goods_details",
           "query": "goods_id=395",
+=======
+          "name": "subpkg/goods_list/goods_list",
+          "pathName": "subpkg/goods_list/goods_list",
+          "query": "",
+>>>>>>> goodsList
           "launchMode": "default",
           "scene": null
         }
