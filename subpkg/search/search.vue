@@ -68,7 +68,7 @@
 			async getSearchResults() {
 				const {
 					data: res
-				} = await uni.$http.get('/api/public/v1/goods/qsearch', {
+				} = await uni.$http.get('/api/public/v1/goods/qsearch', { 
 					query: this.kw
 				})
 				// 请求失败

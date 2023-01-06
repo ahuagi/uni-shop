@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Component({})
-=======
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["subpkg/search/search"],{
 
 /***/ 100:
@@ -338,4 +335,3 @@ render._withStripped = true
 
 },[[96,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/subpkg/search/search.js.map
->>>>>>> search

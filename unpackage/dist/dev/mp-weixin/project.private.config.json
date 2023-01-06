@@ -20,6 +20,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "subpkg/goods_details/goods_details",
+          "pathName": "subpkg/goods_details/goods_details",
+          "query": "goods_id=395",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
