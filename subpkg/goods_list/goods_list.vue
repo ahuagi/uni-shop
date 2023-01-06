@@ -5,7 +5,7 @@
 				<my-goods :goods="goods"></my-goods>
 			</view>
 		</view>
-	</view>
+	</view> 
 </template>
 
 <script>
