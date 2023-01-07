@@ -1,36 +1,12 @@
 {
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "projectname": "uni-shop",
-  "setting": {
-    "compileHotReLoad": true
-  },
   "condition": {
     "miniprogram": {
       "list": [
         {
-          "name": "pages/cate/cate",
-          "pathName": "pages/cate/cate",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "subpkg/search/search",
-          "pathName": "subpkg/search/search",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
           "name": "subpkg/goods_details/goods_details",
           "pathName": "subpkg/goods_details/goods_details",
           "query": "goods_id=395",
-=======
-          "name": "subpkg/goods_list/goods_list",
-          "pathName": "subpkg/goods_list/goods_list",
-          "query": "",
->>>>>>> goodsList
           "launchMode": "default",
           "scene": null
         }
