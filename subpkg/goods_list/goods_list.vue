@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="goods-list">
-			<view v-for="(goods, i) in goodsList" :key="i" @click="gotoDetails(goods)">
+			<view v-for="(goods, i) in goodsList" :key="i" @click="gotoDetails(goods.goods_id)">
 				<my-goods :goods="goods"></my-goods>
 			</view>
 		</view>
@@ -59,11 +59,14 @@
 			this.getGoodsList()
 		},
 		methods: {
-			gotoDetails(goods){
+			// 跳转到详情页
+			gotoDetails(goods_id){
+				console.log(goods_id);
 				uni.navigateTo({
-					url: '/subpkg/goods_details/goods_details'
+					url: '/subpkg/goods_details/goods_details?goods_id=' + goods_id
 				})
 			} ,
+			// 获取商品列表数据
 			async getGoodsList(fun) {
 				// 打开节流阀
 				this.isLoading = true

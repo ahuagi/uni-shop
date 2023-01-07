@@ -259,11 +259,14 @@ var _default = {
     this.getGoodsList();
   },
   methods: {
-    gotoDetails: function gotoDetails(goods) {
+    // 跳转到详情页
+    gotoDetails: function gotoDetails(goods_id) {
+      console.log(goods_id);
       uni.navigateTo({
-        url: '/subpkg/goods_details/goods_details'
+        url: '/subpkg/goods_details/goods_details?goods_id=' + goods_id
       });
     },
+    // 获取商品列表数据
     getGoodsList: function getGoodsList(fun) {
       var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
