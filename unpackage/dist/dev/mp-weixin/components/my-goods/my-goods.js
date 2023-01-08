@@ -77,6 +77,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniNumberBox: function () {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-number-box/components/uni-number-box/uni-number-box */ "uni_modules/uni-number-box/components/uni-number-box/uni-number-box").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue */ 158))
+    },
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -140,12 +163,22 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   name: "my-goods",
   props: {
+    // 商品信息
     goods: {
       type: Object,
       default: {}
+    },
+    // 是否展示radio
+    showRadio: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -153,6 +186,31 @@ var _default = {
       // 默认图片路径
       defaultPic: 'https://img3.doubanio.com/f/movie/8dd0c794499fe925ae2ae89ee30cd225750457b4/pics/movie/celebrity-default-medium.png'
     };
+  },
+  methods: {
+    // 勾选框点击
+    radioClick: function radioClick() {
+      // 触发自定义事件
+      this.$emit('radio-change', {
+        goods_id: this.goods.goods_id,
+        goods_state: !this.goods.goods_state
+      });
+    },
+    // 商品数量改变
+    numChange: function numChange(val) {
+      // 触发自定义事件
+      this.$emit('num-change', {
+        goods_id: this.goods.goods_id,
+        goods_count: +val
+      });
+    },
+    // 点击商品
+    goodsClick: function goodsClick() {
+      // 触发自定义事件
+      this.$emit('myclick', {
+        goods_id: this.goods.goods_id
+      });
+    }
   }
 };
 exports.default = _default;

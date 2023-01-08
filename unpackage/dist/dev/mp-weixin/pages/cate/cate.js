@@ -167,6 +167,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 39));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 41));
+var _tabbarBadge = _interopRequireDefault(__webpack_require__(/*! @/mixins/tabbar-badge.js */ 154));
 //
 //
 //
@@ -202,6 +203,7 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 //
 //
 var _default = {
+  mixins: [_tabbarBadge.default],
   data: function data() {
     return {
       // 窗口的可用高度 = 屏幕高度 - navigationBar高度 - tabBar 高度
