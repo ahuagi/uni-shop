@@ -81,11 +81,12 @@
 
 		}]
 	}],
-
+ 
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "优购商城",
 		"navigationBarBackgroundColor": "#C00000",
 		"backgroundColor": "#FFFFFF"
 	}
-}
+} 
+   
