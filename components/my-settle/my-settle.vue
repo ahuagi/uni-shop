@@ -11,7 +11,7 @@
 		</view>
 
 		<!-- 结算按钮 -->
-		<view class="btn-settle">结算({{checkedCount}})</view>
+		<view class="btn-settle" @click="settle">结算({{checkedCount}})</view>
 	</view>
 
 	<!-- 购物车无商品时显示 -->
@@ -24,31 +24,98 @@
 <script>
 	import {
 		mapGetters,
-		mapMutations
+		mapMutations,
+		mapState
 	} from 'vuex'
 	export default {
 		name: "my-settle",
 		computed: {
 			...mapGetters('cart', ['checkedCount', 'total', 'totalPrice']),
+			...mapState('cart' , ['cart']) ,
+			...mapGetters('user', ['addstr']),
+			...mapState('user', ['token']),
 			// 商品是否全选
 			isFullCheck() {
 				// 判断商品总数是否与已勾选总数相同
 				return this.total === this.checkedCount
-			} ,
-			
+			},
+
 		},
 		data() {
 			return {
-
+				// 倒计时总时长
+				seconds: 3,
+				// 定时器的 Id
+				timer: null
 			};
 		},
 
 		methods: {
-			...mapMutations('cart', ['updateAllGoodsState']),
+			...mapMutations('cart', ['updateAllGoodsState', ]),
+			...mapMutations('user', ['updateRedirectInfo']),
 			// 商品全选和反选
 			changeAllState() {
 				this.updateAllGoodsState(!this.isFullCheck)
-			}
+			},
+			// 点击结算按钮
+			settle() {
+				// 判断选中商品是否为空
+				if (!this.checkedCount) {
+					return uni.$showMsg('请选择要结算的商品')
+				}
+				// 判断收货地址是否为空
+				if (!this.addstr) {
+					return uni.$showMsg('请添加收货地址')
+				}
+				// 判断token是否为空 
+				if (!this.token) {
+					return this.delayNavigate()
+				}
+				 
+			},
+			// 展示倒计时提示消息
+			showTips(n) {
+				// 展示提示消息
+				uni.showToast({
+					icon: 'none',
+					// 提示消息
+					title: '请登录后再结算 ' + n + ' 秒后自动跳转到登录页',
+					// 防止点击穿透
+					mask: true,
+					// 1秒后自动消失
+					duration: 1000
+				})
+			},
+			// 延迟导航到 我的 页面
+			delayNavigate() {
+				// 时间重置成 3 秒
+				this.seconds = 3
+				this.showTips(this.seconds)
+				// 定时器每隔一秒展示一次提示信息，时间截至时跳转到我的页面
+				this.timer = setInterval(() => {
+					this.seconds--
+					if (this.seconds <= 0) {
+						clearInterval(this.timer)
+						uni.switchTab({
+							url: '/pages/my/my',
+							// 页面跳转成功
+							success: () => {
+								// 修改重定向信息
+								this.updateRedirectInfo({
+									// 跳转方式
+									openType: 'switchTab',
+									// 从哪个页面跳转过去的
+									from: '/pages/cart/cart'
+								})
+							}
+						})
+						return
+					}
+					this.showTips(this.seconds)
+
+				}, 1000)
+			},
+
 		}
 
 

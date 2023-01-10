@@ -137,7 +137,7 @@ var getVal = function getVal(val) {
   return typeof val === 'number' || reg.test(val) ? val + 'px' : val;
 };
 
-/**
+/**   
  * Icons 图标
  * @description 用于展示 icons 图标
  * @tutorial https://ext.dcloud.net.cn/plugin?id=28
