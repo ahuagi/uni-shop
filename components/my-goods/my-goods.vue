@@ -1,6 +1,6 @@
 <template>
-	<view>
-		<view class="goods-item">
+	<view @click="goodsClick">
+		<view class="goods-item" >
 			<!-- 商品左侧图片区域 -->
 			<view class="goods-item-left">
 				<!-- 勾选框 -->
@@ -8,14 +8,17 @@
 				<image :src="goods.goods_small_logo || defaultPic" class="goods-pic"></image>
 			</view>
 			<!-- 商品右侧信息区域 -->
-			<view class="goods-item-right"  @click="goodsClick">
+			<view class="goods-item-right">
 				<!-- 商品标题 -->
 				<view class="goods-name">{{goods.goods_name}}</view>
-				<view class="goods-info-box">
+				<view class="goods-info-box" >
 					<!-- 商品价格 -->
 					<view class="goods-price">￥{{goods.goods_price}}</view>
 					<!-- 商品数量 -->
-					<uni-number-box :min="1" :value="goods.goods_count" v-if="showRadio" @change="numChange"></uni-number-box>
+					<!-- 阻止事件冒泡 -->
+					<view class="" @click.stop="">
+						<uni-number-box :min="1" :value="goods.goods_count" v-if="showRadio" @change="numChange"></uni-number-box>
+					</view>
 				</view>
 			</view>
 		</view>

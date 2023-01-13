@@ -1,4 +1,5 @@
 {
+	"lazyCodeLoading": "requiredComponents",
 	"tabBar": {
 		"selectedColor": "#C00000",
 		"list": [{
@@ -88,5 +89,5 @@
 		"navigationBarBackgroundColor": "#C00000",
 		"backgroundColor": "#FFFFFF"
 	}
-} 
+}  
    
